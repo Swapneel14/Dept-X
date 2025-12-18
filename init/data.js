@@ -1,0 +1,365 @@
+
+  const sampledata= [
+    {
+      "name": "Kapil Dev Raykwar",
+      "roll": "2022CSB013"
+    },
+    {
+      "name": "Dipanjan Dhibar",
+      "roll": "2022CSB063"
+    },
+    {
+      "name": "Davis Dhanda",
+      "roll": "2022CSB100"
+    },
+    {
+      "name": "Aasim Bin Najeeb",
+      "roll": "2023CSB004"
+    },
+    {
+      "name": "Atreyi Biswas",
+      "roll": "2024CSB001"
+    },
+    {
+      "name": "Arghadip Som",
+      "roll": "2024CSB002"
+    },
+    {
+      "name": "Piyush Kumar Pati",
+      "roll": "2024CSB003"
+      
+    },
+    {
+      "name": "Faiqa Areej",
+      "roll": "2024CSB004"
+    },
+    {
+      "name": "Chayan Mandal",
+      "roll": "2024CSB005"
+    },
+    {
+      "name": "Tejavath Madan Nayak",
+      "roll": "2024CSB006"
+    },
+    {
+      "name": "Soujanya Pathak",
+      "roll": "2024CSB007"
+    },
+    {
+      "name": "Debasmita Pal",
+      "roll": "2024CSB008"
+    },
+    {
+      "name": "Anushka Kar",
+      "roll": "2024CSB009"
+    },
+    {
+      "name": "Ravineesh Singh",
+      "roll": "2024CSB010"
+    },
+    {
+      "name": "Krish Mohan Verma",
+      "roll": "2024CSB011"
+    },
+    {
+      "name": "Jayesh Ashok Kapgate",
+      "roll": "2024CSB012"
+    },
+    {
+      "name": "Sreenjoy Chakrabarty",
+      "roll": "2024CSB013"
+    },
+    {
+      "name": "Talakanti Sreenath Reddy",
+      "roll": "2024CSB014"
+    },
+    {
+      "name": "Harshit Maurya",
+      "roll": "2024CSB016"
+    },
+    {
+      "name": "Prantik Kundu",
+      "roll": "2024CSB017"
+    },
+    {
+      "name": "Arosh",
+      "roll": "2024CSB018"
+    },
+    {
+      "name": "K Uday Kumar",
+      "roll": "2024CSB019"
+    },
+    {
+      "name": "Moinak Ghosh",
+      "roll": "2024CSB020"
+    },
+    {
+      "name": "Swapneel Sarkar",
+      "roll": "2024CSB021"
+    },
+    {
+      "name": "Antarikshya Mitra",
+      "roll": "2024CSB022"
+    },
+    {
+      "name": "Subham Das",
+      "roll": "2024CSB023"
+    },
+    {
+      "name": "Bristi Talukdar",
+      "roll": "2024CSB024"
+    },
+    {
+      "name": "Pemmasani Sai Punith",
+      "roll": "2024CSB025"
+    },
+    {
+      "name": "Bhoomika Bhoskar",
+      "roll": "2024CSB026"
+    },
+    {
+      "name": "Anisha Mahata",
+      "roll": "2024CSB028"
+    },
+    {
+      "name": "Dwaipayan Das",
+      "roll": "2024CSB029"
+    },
+    {
+      "name": "Sourav Pal",
+      "roll": "2024CSB030"
+    },
+    {
+      "name": "Aman Tudu",
+      "roll": "2024CSB031"
+    },
+    {
+      "name": "Soumyadeep Paul",
+      "roll": "2024CSB032"
+    },
+    {
+      "name": "Aritra Das",
+      "roll": "2024CSB033"
+    },
+    {
+      "name": "Subhajit Saha",
+      "roll": "2024CSB034"
+    },
+    {
+      "name": "Tanmoy Mondal",
+      "roll": "2024CSB035"
+    },
+    {
+      "name": "Arpan Sit",
+      "roll": "2024CSB036"
+    },
+    {
+      "name": "Arpan Senapati",
+      "roll": "2024CSB037"
+    },
+    {
+      "name": "Kshitij Kharat",
+      "roll": "2024CSB039"
+    },
+    {
+      "name": "Aniruddha Ray",
+      "roll": "2024CSB040"
+    },
+    {
+      "name": "Mrigaj Shaw",
+      "roll": "2024CSB041"
+    },
+    {
+      "name": "Debarghya Das",
+      "roll": "2024CSB042"
+    },
+    {
+      "name": "Radheya Prathivada",
+      "roll": "2024CSB044"
+    },
+    {
+      "name": "Riddhi Agarwal",
+      "roll": "2024CSB046"
+    },
+    {
+      "name": "Sanchita Gupta",
+      "roll": "2024CSB047"
+    },
+    {
+      "name": "Shreyansh Dixit",
+      "roll": "2024CSB048"
+    },
+    {
+      "name": "Inagandla Koushik Sree Vathsa",
+      "roll": "2024CSB049"
+    },
+    {
+      "name": "Abhik Kumar Maurya",
+      "roll": "2024CSB050"
+    },
+    {
+      "name": "Mohit Chouhan",
+      "roll": "2024CSB051"
+    },
+    {
+      "name": "Soubhik Raha",
+      "roll": "2024CSB052"
+    },
+    {
+      "name": "Nandini Khan",
+      "roll": "2024CSB053"
+    },
+    {
+      "name": "Vishesh Kumar",
+      "roll": "2024CSB054"
+    },
+    {
+      "name": "Satadru Sengupta",
+      "roll": "2024CSB055"
+    },
+    {
+      "name": "Deep Sarkar",
+      "roll": "2024CSB056"
+    },
+    {
+      "name": "Ishwar Chandra Paul",
+      "roll": "2024CSB057"
+    },
+    {
+      "name": "Tamanna Jana",
+      "roll": "2024CSB058"
+    },
+    {
+      "name": "Doki Kamalesh",
+      "roll": "2024CSB059"
+    },
+    {
+      "name": "Sidarth Singh",
+      "roll": "2024CSB060"
+    },
+    {
+      "name": "Ananya Sarkar",
+      "roll": "2024CSB061"
+    },
+    {
+      "name": "Pushpam Kumari",
+      "roll": "2024CSB062"
+    },
+    {
+      "name": "Anik Chakraborty",
+      "roll": "2024CSB063"
+    },
+    {
+      "name": "Rohit Das",
+      "roll": "2024CSB064"
+    },
+    {
+      "name": "Dasari Neelachalam",
+      "roll": "2024CSB066"
+    },
+    {
+      "name": "Korada Pardhiv",
+      "roll": "2024CSB067"
+    },
+    {
+      "name": "Ritabrata Basak",
+      "roll": "2024CSB068"
+    },
+    {
+      "name": "Alok Raj Tiger",
+      "roll": "2024CSB069"
+    },
+    {
+      "name": "Satyam Kumar",
+      "roll": "2024CSB070"
+    },
+    {
+      "name": "Ramkrishna Kumar",
+      "roll": "2024CSB071"
+    },
+    {
+      "name": "Vinit Yograj Waghmare",
+      "roll": "2024CSB073"
+    },
+    {
+      "name": "Anish Karenga",
+      "roll": "2024CSB074"
+    },
+    {
+      "name": "Shubh Khare",
+      "roll": "2024CSB075"
+    },
+    {
+      "name": "Aripaka Likhith",
+      "roll": "2024CSB077"
+    },
+    {
+      "name": "Polimeru Lokesh",
+      "roll": "2024CSB078"
+    },
+    {
+      "name": "Archana Singh",
+      "roll": "2024CSB079"
+    },
+    {
+      "name": "Ashika Shaw",
+      "roll": "2024CSB080"
+    },
+    {
+      "name": "Vishal Kumar Bijay Kumar Swain",
+      "roll": "2024CSB081"
+    },
+    {
+      "name": "Dipak Mahata",
+      "roll": "2024CSB082"
+    },
+    {
+      "name": "Akriti Singh",
+      "roll": "2024CSB083"
+    },
+    {
+      "name": "Sambita Ghosh",
+      "roll": "2024CSB084"
+    },
+    {
+      "name": "Tarun Chowdary Yegi",
+      "roll": "2024CSB085"
+    },
+    {
+      "name": "Chawan Vikash",
+      "roll": "2024CSB086"
+    },
+    {
+      "name": "Chuncha Varshith",
+      "roll": "2024CSB087"
+    },
+    {
+      "name": "Grandhi Rithika",
+      "roll": "2024CSB088"
+    },
+    {
+      "name": "Dheeraj Kumar Prajapati",
+      "roll": "2024CSB089"
+    },
+    {
+      "name": "Anushree Choudhary",
+      "roll": "2024CSB090"
+    },
+    {
+      "name": "Pulipelly Akhil Reddy",
+      "roll": "2024CSB091"
+    },
+    {
+      "name": "Vinay Malik",
+      "roll": "2024CSB092"
+    },
+    {
+      "name": "Gujjarlapudi Dayjit",
+      "roll": "2024CSB093"
+    },
+    {
+      "name": "Soumik Mallick",
+      "roll": "2024CSB094"
+    }
+  ]
+module.exports = { data: sampledata };

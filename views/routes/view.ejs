@@ -1,0 +1,60 @@
+<% layout("/layouts/boilerplate") %>
+
+<body class="bg-dark text-light">
+  <div class="container py-5">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card bg-secondary shadow rounded p-4">
+          <h3 class="card-title text-center mb-4">Student Profile</h3>
+
+          <!-- Name -->
+          <div class="mb-3 d-flex justify-content-between align-items-center border-bottom pb-2">
+            <strong>Name:</strong>
+            <span><%= student.name %></span>
+          </div>
+
+          <!-- Roll -->
+          <div class="mb-3 d-flex justify-content-between align-items-center border-bottom pb-2">
+            <strong>Roll:</strong>
+            <span><%= student.roll %></span>
+          </div>
+
+          <!-- CGPA -->
+          <div class="mb-3 d-flex justify-content-between align-items-center">
+            <strong>CGPA:</strong>
+            <span>
+              <% if (student.cgpa != null) { %>
+                <%= student.cgpa %>
+              <% } else { %>
+                -
+              <% } %>
+            </span>
+          </div>
+
+        </div>
+        <p class="text-center text-muted mt-3 small author">Made by Swapneel 👋</p>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    .card {
+      border: none;
+      border-radius: 15px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .card:hover {
+      transform: scale(1.02);
+      box-shadow: 0 6px 20px rgba(255, 255, 255, 0.15);
+    }
+
+    strong {
+      font-size: 1.05rem;
+    }
+    .author {
+      font-size: 0.9rem;
+      color: white!important;
+    }
+  </style>
+</body>

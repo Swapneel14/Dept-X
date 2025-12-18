@@ -1,0 +1,23 @@
+<% layout("/layouts/boilerplate") %>
+
+<body class="bg-dark text-light">
+  <div class="container py-5">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card bg-danger text-light shadow rounded p-4">
+          <h3 class="card-title text-center mb-4">⚠️ Wrong Password</h3>
+          
+          <p class="text-center mb-4">
+            The password you entered is incorrect. Please try again.
+          </p>
+
+          <div class="text-center">
+            <a href="/login/<%= student._id %>" class="btn btn-warning fw-bold">
+              Back to Login
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>

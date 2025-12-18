@@ -1,0 +1,76 @@
+<% layout("/layouts/boilerplate") %>
+
+    <body>
+        <div class="row justify-content-center">
+    <div class="col-lg-4 col-md-6 mb-4">
+        <div style="height:250px;">
+            <canvas class="can"></canvas>
+        </div>
+    </div>
+    <div class="col-lg-4 col-md-6 mb-4">
+        <div style="height:250px;">
+            <canvas class="pie"></canvas>
+        </div>
+    </div>
+</div>
+
+     
+
+
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script>
+           
+            var barCanvas = document.getElementsByClassName("can")[0].getContext('2d');
+    var pieCanvas = document.getElementsByClassName("pie")[0].getContext('2d');
+
+    var barConfig = {
+        type: "bar",
+        data: {
+            labels: ["Boy", "Girl"],
+            datasets: [{
+                label: "Percentage",
+                data: [86, 14],
+                backgroundColor: ["#dc3545", "#007bff"]
+            }],
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    max: 100,
+                    title: { display: true, text: "Percentage (%)", font: { size: 14 } },
+                    ticks: { font: { size: 12 } }
+                },
+                x: { ticks: { font: { size: 12 } } }
+            },
+            plugins: {
+                legend: { labels: { font: { size: 12 } } },
+                title: { display: false }
+            }
+        }
+    };
+
+    new Chart(barCanvas, barConfig);
+
+    new Chart(pieCanvas, {
+        type: "pie",
+        data: {
+            labels: ["Boy", "Girl"],
+            datasets: [{
+                label: "Percentage",
+                data: [86, 14],
+                backgroundColor: ["#dc3545", "#007bff"]
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: { legend: { labels: { font: { size: 12 } } } }
+        }
+    });
+
+
+        </script>
+    </body>

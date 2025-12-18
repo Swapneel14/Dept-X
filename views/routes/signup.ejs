@@ -1,0 +1,36 @@
+<% layout("/layouts/boilerplate") %>
+
+<body class="bg-dark text-light">
+  <div class="container py-5">
+    <h2 class="text-center mb-4">Create Your Password</h2>
+
+    <form action="/signup/<%=user._id%>" method="POST" class="p-4 bg-secondary rounded shadow">
+      
+      <div class="mb-3">
+        <label for="roll" class="form-label">Enter your Enrollment Number</label>
+        <input 
+          type="text" 
+          id="roll" 
+          name="user[roll]" 
+          value="<%=user.roll%>"
+          class="form-control" 
+          readonly
+        >
+      </div>
+
+      <div class="mb-3">
+        <label for="password" class="form-label">Create Password</label>
+        <input 
+          type="password" 
+          id="password" 
+          name="user[password]" 
+          class="form-control" 
+          required
+        >
+      </div>
+
+      <button type="submit" class="btn btn-warning w-100 fw-bold">Sign Up</button>
+    </form>
+  </div>
+</body>
+

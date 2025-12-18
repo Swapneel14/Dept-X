@@ -1,0 +1,49 @@
+<% layout("/layouts/boilerplate") %>
+
+<body class="bg-dark text-light">
+  <div class="container py-5">
+    <div class="row justify-content-center">
+      <div class="col-md-5">
+        <div class="card bg-secondary shadow rounded">
+          <div class="card-body p-4">
+            <h3 class="card-title text-center mb-4">Student Login</h3>
+
+            <form action="/profile/<%=student._id%>" method="POST">
+              <!-- Enrollment Number -->
+              <div class="mb-3">
+                <label for="roll" class="form-label">Enrollment Number</label>
+                <input 
+                  type="text" 
+                  id="roll" 
+                  name="student[roll]" 
+                  value="<%= student.roll %>" 
+                  readonly 
+                  class="form-control bg-dark text-light"
+                >
+              </div>
+
+              <!-- Password -->
+              <div class="mb-3">
+                <label for="password" class="form-label">Enter Password</label>
+                <input 
+                  type="password" 
+                  id="password" 
+                  name="student[password]" 
+                  class="form-control" 
+                  placeholder="Enter your password" 
+                  required
+                >
+              </div>
+
+              <!-- Submit Button -->
+              <button type="submit" class="btn btn-warning w-100 fw-bold">
+                Log In
+              </button>
+            </form>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>

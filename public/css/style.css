@@ -1,0 +1,240 @@
+
+body {
+  background-color: rgb(3, 3, 50) !important;
+  color: #fff;
+  font-family: "Plus Jakarta Sans", sans-serif!important;
+}
+.h1-home{
+  color: aqua;
+}
+
+.author {
+  font-size: 11px;
+  font-weight: 500;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #fffbfb;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+
+  position: fixed;      /* stays at bottom even on scroll */
+  bottom: 15px;         /* distance from bottom */
+  left: 50%;            /* center horizontally */
+  transform: translateX(-50%); /* perfect horizontal centering */
+  z-index: 1000;        /* on top of other elements */
+}
+
+
+
+/* Base Navbar Styling */
+.navbar {
+  background: linear-gradient(90deg, #ff6600, #ff8c1a); /* orange gradient */
+  border-bottom: 3px solid #ffa64d;
+  box-shadow: 0 2px 10px rgba(255, 165, 0, 0.3);
+  font-family: "Poppins", sans-serif;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Brand */
+.navbar-brand {
+  color: #fff !important;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.navbar-brand:hover {
+  color: #ffe6b3 !important;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+}
+
+/* Navbar Links */
+.nav-link {
+  color: #fff !important;
+  margin-right: 15px;
+  font-weight: 500;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+/* Underline hover animation */
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 0%;
+  height: 2px;
+  background-color: #fff;
+  transition: width 0.3s;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.nav-link:hover {
+  color: #ffe6b3 !important;
+}
+
+/* Active link */
+.nav-link.active {
+  color: #000 !important;
+  background-color: #fff;
+  border-radius: 6px;
+  padding: 6px 12px;
+}
+
+/* Mobile toggle button (hamburger) */
+.navbar-toggler {
+  border: 2px solid #fff;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.navbar-toggler-icon {
+  filter: invert(1);
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .navbar {
+    background: #ff751a;
+  }
+
+  .navbar-nav {
+    margin-top: 10px;
+  }
+
+  .nav-link {
+    margin: 5px 0;
+  }
+}
+
+.all-student{
+    display: flex;
+}
+
+.card{
+    background-color: rgb(150, 17, 17)!important;
+}
+.student-card {
+  background: linear-gradient(145deg, #111111, #880c0c);
+  border: 1px solid #2a2a2a;
+  border-radius: 15px;
+  color: #fff;
+  box-shadow: 0 0 10px rgba(255, 100, 0, 0.1);
+  transition: all 0.3s ease;
+  padding: 10px;
+}
+.student-card .card-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #ff884d;
+  text-align: left;
+  margin-bottom: 8px;
+}
+.card:hover {
+  opacity: 0.2;
+  background-color: aqua;
+}
+.student-card .card-subtitle {
+  color: #e0e0e0;
+  font-size: 0.95rem;
+  text-align: left;
+}
+
+/* Spacing between cards */
+.row {
+  gap: 10px; /* adds uniform space between cards */
+  justify-content: center;
+}
+
+
+/* 🎨 Horizontal Sign Up & Login Buttons */
+.card .row {
+  display: flex;
+  justify-content: center;
+  gap: 10px;          /* space between buttons */
+  margin: 10px 0 15px 0;
+}
+
+/* Base button styling */
+.sign-btn button,
+.login-btn button {
+  background: linear-gradient(90deg, #ff6600, #ff8c1a);
+  border: none;
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.8rem;          /* smaller font */
+  padding: 6px 14px;          /* smaller padding */
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  letter-spacing: 0.4px;
+}
+
+/* Hover effect */
+.sign-btn button:hover,
+.login-btn button:hover {
+  background: linear-gradient(90deg, #ffa31a, #ff6600);
+  transform: translateY(-2px);
+  box-shadow: 0 0 10px rgba(255, 102, 0, 0.5);
+}
+
+/* Make sure buttons don’t stretch */
+.sign-btn,
+.login-btn {
+  flex: 0;
+}
+
+/* Responsive tweak: stack on very small screens */
+@media (max-width: 480px) {
+  .card .row {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .sign-btn button,
+  .login-btn button {
+    width: 80%;
+    margin: 3px 0;
+  }
+}
+/* Remove old hover */
+.card:hover {
+  opacity: 1;
+  background-color: rgb(206, 9, 9) !important; /* your base color */
+}
+
+/* Add hover effect only to the top area */
+.card-hover-area:hover {
+  background: linear-gradient(145deg, #ed3131, #aa1e1e);
+  transition: all 0.3s ease;
+  border-radius: 15px 15px 0 0;
+  cursor: pointer;
+}
+
+/* Ensure the bottom (buttons area) is stable */
+.card-buttons {
+  padding: 10px 0 15px 0;
+  background-color: rgb(54, 6, 6); /* keep same as card base */
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0 0 15px 15px;
+}
+.author{
+  color: #fff;
+}
+.resource-card {
+    background-color: #ffe5e5;
+    aspect-ratio: 1 / 1;
+    padding: 1rem;
+}
+
+/* Mobile screens */
+@media (max-width: 576px) {
+    .resource-card {
+        aspect-ratio: unset;
+        height: 150px !important 
+    }
+}
+

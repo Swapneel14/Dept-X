@@ -1,0 +1,51 @@
+<% layout("/layouts/boilerplate") %>
+
+<body class="bg-dark text-light">
+  <div class="container py-5">
+    <div class="row row-cols-lg-5 row-cols-md-4 row-cols-sm-2 g-4">
+      <% for (const s of allstudents) { %>
+        <div class="col">
+          <a href="/view/<%= s._id %>" class="text-decoration-none text-light">
+            <div class="card student-card h-100 bg-secondary shadow-sm border-0 hover-scale">
+              <div class="card-body text-center">
+                <h5 class="card-title fw-bold mb-1"><%= s.roll %></h5>
+                <h6 class="card-subtitle mb-3 text-warning"><%= s.name %></h6>
+
+                <div class="d-flex justify-content-center gap-2">
+                  <form action="/signup/<%= s._id %>" method="GET" class="d-inline">
+                    <button type="submit" class="btn btn-outline-light btn-sm">Sign Up</button>
+                  </form>
+                  <form action="/login/<%= s._id %>" method="GET" class="d-inline">
+                    <button type="submit" class="btn btn-warning btn-sm">Login</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+      <% } %>
+    </div>
+
+    <p class="author text-center mt-4 text-muted">Made by Swapneel 👋</p>
+  </div>
+
+  <style>
+    .hover-scale {
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .hover-scale:hover {
+      transform: scale(1.15);
+      box-shadow: 0 6px 15px rgba(255, 255, 255, 0.2);
+    }
+
+    .student-card {
+      border-radius: 15px;
+    }
+
+    .author {
+      font-size: 0.9rem;
+      color: white!important;
+    }
+  </style>
+</body>
