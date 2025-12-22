@@ -1,76 +1,223 @@
 <% layout("/layouts/boilerplate") %>
 
-    <body>
-        <div class="row justify-content-center">
-    <div class="col-lg-4 col-md-6 mb-4">
-        <div style="height:250px;">
-            <canvas class="can"></canvas>
+<style>
+    body {
+        background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+        min-height: 100vh;
+    }
+
+    .fade-pop {
+        animation: popFade 1s ease forwards;
+        opacity: 0;
+    }
+
+    .delay-1 { animation-delay: .3s; }
+    .delay-2 { animation-delay: .6s; }
+    .delay-3 { animation-delay: .9s; }
+    .delay-4 { animation-delay: 1.2s; }
+    .delay-5 { animation-delay: 1.5s; }
+    .delay-6 { animation-delay: 1.8s; }
+    .delay-7 { animation-delay: 2.1s; }
+
+    @keyframes popFade {
+        0% {
+            opacity: 0;
+            transform: scale(0.9) translateY(10px);
+        }
+        100% {
+            opacity: 1;
+            transform: scale(1) translateY(0);
+        }
+    }
+
+    .chart-box {
+        height: 150px;
+    }
+
+    @media (min-width: 992px) {
+        .container {
+            max-width: 1100px;
+        }
+        .chart-box {
+            height: 220px;
+        }
+    }
+
+   
+</style>
+
+<div class="container py-5 text-white">
+
+    <!-- TOP INFO -->
+    <div class="row g-4 text-center mb-4 fade-pop">
+        <div class="col-md-6">
+            <div class="card bg-dark shadow delay-1 fade-pop">
+                <div class="card-body">
+                    <h5 class="card-title text-warning">Class Representatives (CR)</h5>
+                    <p class="mb-1 cr-name fade-pop delay-6">Chayan Mondal</p>
+                    <p class="mb-0 cr-name fade-pop delay-6">Satyam Kumar</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="card bg-dark shadow delay-2 fade-pop">
+                <div class="card-body">
+                    <h5 class="card-title text-info fade-pop delay-3">Year Representative (YR)</h5>
+                    <p class="mb-0 cr-name fade-pop delay-6">Vinit Yogiraj Waghmare</p>
+                </div>
+            </div>
         </div>
     </div>
-    <div class="col-lg-4 col-md-6 mb-4">
-        <div style="height:250px;">
-            <canvas class="pie"></canvas>
+
+    <!-- WELCOME -->
+    <div class="text-center mb-5">
+        <h1 class="fw-bold fade-pop delay-3">Welcome to DEPT-X 👋</h1>
+        <p class="lead fade-pop delay-4">
+            Centralized space for class statistics, insights, and updates
+        </p>
+        <p class="fade-pop delay-5">
+            Stay informed • Stay connected • Stay ahead 🚀
+        </p>
+    </div>
+
+    <!-- CHARTS -->
+    <div class="row g-4">
+        <div class="col-md-6 fade-pop delay-6">
+            <div class="card shadow h-100">
+                <div class="card-body">
+                    <h6 class="text-center mb-3">Gender Distribution (Bar)</h6>
+                    <div class="chart-box">
+                        <canvas class="can"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 fade-pop delay-7">
+            <div class="card shadow h-100">
+                <div class="card-body">
+                    <h6 class="text-center mb-3">Gender Distribution (Pie)</h6>
+                    <div class="chart-box">
+                        <canvas class="pie"></canvas>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+
+    <!-- NOTICE BOARD -->
+    <div class="row mt-5 fade-pop delay-7">
+        <div class="col-12">
+            <div class="card notice-board shadow-lg">
+                <div class="card-body">
+
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <h4 class="text-warning mb-0">📢 Notice Board</h4>
+
+                        <a href="/addnotices" class="btn btn-sm btn-outline-warning">
+                            ➕ Add Notice
+                        </a>
+                    </div>
+
+                    <% if (allnotice.length === 0) { %>
+                        <p class="text-muted text-center">
+                            No notices posted yet.
+                        </p>
+                    <% } %>
+
+                    <div class="notice-scroll">
+
+    <% allnotice.forEach(notice => { %>
+        <div class="notice-item mb-3">
+            <span class="badge bg-danger me-2">IMPORTANT</span>
+
+            <p class="d-block poster-name">
+                Posted by <%= notice.by %>
+            </p>
+
+            <strong class="mb-1 text-dark">
+                <%= notice.content %>
+            </p>
+
+            <small class="notice-date">
+                Posted on:
+                <%= new Date(notice.date).toLocaleString("en-IN", {
+                    timeZone: "Asia/Kolkata",
+                    day: "2-digit",
+                    month: "short",
+                    year: "numeric",
+                    hour: "2-digit",
+                    minute: "2-digit",
+                    hour12: true
+                }) %>
+            </small>
+        </div>
+
+        <hr class="text-secondary">
+
+    <% }) %>
+
 </div>
 
-     
+                </div>
+            </div>
+        </div>
+    </div>
 
+</div>
 
-        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-        <script>
-           
-            var barCanvas = document.getElementsByClassName("can")[0].getContext('2d');
-    var pieCanvas = document.getElementsByClassName("pie")[0].getContext('2d');
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    const barCanvas = document.querySelector(".can").getContext("2d");
+    const pieCanvas = document.querySelector(".pie").getContext("2d");
 
-    var barConfig = {
-        type: "bar",
-        data: {
-            labels: ["Boy", "Girl"],
-            datasets: [{
-                label: "Percentage",
-                data: [86, 14],
-                backgroundColor: ["#dc3545", "#007bff"]
-            }],
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            scales: {
-                y: {
-                    beginAtZero: true,
-                    max: 100,
-                    title: { display: true, text: "Percentage (%)", font: { size: 14 } },
-                    ticks: { font: { size: 12 } }
-                },
-                x: { ticks: { font: { size: 12 } } }
+    new Chart(barCanvas, {
+    type: "bar",
+    data: {
+        labels: ["Male", "Female"],   // X-axis indication
+        datasets: [{
+            label: "Students",       // 👈 THIS FIXES 'undefined'
+            data: [86, 14],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+            y: {
+                beginAtZero: true,
+                max: 100,
+                title: {
+                    display: true,
+                    text: "Number of Students"
+                }
             },
-            plugins: {
-                legend: { labels: { font: { size: 12 } } },
-                title: { display: false }
+            x: {
+                title: {
+                    display: true,
+                    text: "Gender"
+                }
             }
         }
-    };
-
-    new Chart(barCanvas, barConfig);
+    }
+});
 
     new Chart(pieCanvas, {
         type: "pie",
         data: {
             labels: ["Boy", "Girl"],
             datasets: [{
-                label: "Percentage",
                 data: [86, 14],
-                backgroundColor: ["#dc3545", "#007bff"]
+                backgroundColor: ["#20c997", "#6f42c1"],
+                borderColor: ["#198754", "#5a32a3"],
+                borderWidth: 2
             }]
         },
         options: {
             responsive: true,
-            maintainAspectRatio: false,
-            plugins: { legend: { labels: { font: { size: 12 } } } }
+            maintainAspectRatio: false
         }
     });
-
-
-        </script>
-    </body>
+</script>

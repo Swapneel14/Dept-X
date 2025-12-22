@@ -1,21 +1,21 @@
 <% layout("/layouts/boilerplate") %>
 
 <body class="bg-dark text-light">
-  <div class="container py-5">
+  <div class="container py-5 fade-pop delay-1">
     <div class="row row-cols-lg-5 row-cols-md-4 row-cols-sm-2 g-4">
       <% for (const s of allstudents) { %>
         <div class="col">
           <a href="/view/<%= s._id %>" class="text-decoration-none text-light">
             <div class="card student-card h-100 bg-secondary shadow-sm border-0 hover-scale">
-              <div class="card-body text-center">
-                <h5 class="card-title fw-bold mb-1"><%= s.roll %></h5>
-                <h6 class="card-subtitle mb-3 text-warning"><%= s.name %></h6>
+              <div class="card-body text-center fade-pop delay-2">
+                <h5 class="card-title fw-bold mb-1 fade-pop delay-3"><%= s.roll %></h5>
+                <h6 class="card-subtitle mb-3 text-warning fade-pop delay-3"><%= s.name %></h6>
 
-                <div class="d-flex justify-content-center gap-2">
-                  <form action="/signup/<%= s._id %>" method="GET" class="d-inline">
+                <div class="d-flex justify-content-center gap-2 fade-pop delay-5">
+                  <form action="/signup/<%= s._id %>" method="GET" class="d-inline fade-pop delay-5">
                     <button type="submit" class="btn btn-outline-light btn-sm">Sign Up</button>
                   </form>
-                  <form action="/login/<%= s._id %>" method="GET" class="d-inline">
+                  <form action="/login/<%= s._id %>" method="GET" class="d-inline delay-5">
                     <button type="submit" class="btn btn-warning btn-sm">Login</button>
                   </form>
                 </div>
@@ -46,6 +46,29 @@
     .author {
       font-size: 0.9rem;
       color: white!important;
+    }
+
+     .fade-pop {
+        animation: popFade 1s ease forwards;
+        opacity: 0;
+    }
+      
+      
+    .delay-1 { animation-delay: .3s; }
+    .delay-2 { animation-delay: .6s; }
+    .delay-3 { animation-delay: .9s; }
+    .delay-4 { animation-delay: 1.2s; }
+    .delay-5 { animation-delay: 1.5s; }
+
+     @keyframes popFade {
+        0% {
+            opacity: 0;
+            transform: scale(0.9) translateX(10px);
+        }
+        100% {
+            opacity: 1;
+            transform: scale(1) translateX(0);
+        }
     }
   </style>
 </body>

@@ -3,6 +3,7 @@ const app= express();
 const mongoose= require("mongoose");
 const mongolink="mongodb://127.0.0.1:27017/dashboard";
 const Student= require("./models/students.js");
+const Notice= require("./models/notices.js");
 const path=require('path');
 const methodoverride=require("method-override");
 const ejsmate=require("ejs-mate");
@@ -37,11 +38,32 @@ app.use("/signup/:id",async(req,res,next)=>{//Middleware for signup page
   }
 })
 
+app.use((req, res, next) => {
+  res.locals.currentPath = req.path;
+  next();
+});
+
+
 //Root Route
-app.get("/",(req,res)=>{
-   
-    res.render("routes/home.ejs");
-})
+app.get("/",
+  async(req,res)=>{
+    const allnotice=await Notice.find({}).sort({ date: -1 });
+    res.render("routes/home.ejs",{allnotice});
+}
+)
+
+app.post("/",wrap(
+  async(req,res,next)=>{
+    let {notice,password}=req.body;
+     if(password!="chayan123"){
+      return res.send('Password not correct');
+     }
+     const newNotice= new Notice(notice);
+     await newNotice.save();
+     res.redirect("/");
+
+  }
+))
 
 //All Students
 app.get("/students",async(req,res)=>{
@@ -175,6 +197,14 @@ app.get("/resources",
       res.render("routes/rs.ejs")
     }
 )
+
+app.get("/addnotices",wrap(
+  async(req,res,next)=>{
+    res.render("routes/addnotice.ejs");
+  }
+))
+
+
 
 //Custom Error Handler
 app.use((err,req,res,next)=>{

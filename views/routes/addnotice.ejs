@@ -1,0 +1,91 @@
+<% layout("/layouts/boilerplate") %>
+
+<style>
+    body {
+        background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+        min-height: 100vh;
+    }
+
+    .notice-form {
+        max-width: 500px;
+        margin: auto;
+        background: rgba(0, 0, 0, 0.7);
+        padding: 30px;
+        border-radius: 16px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+        color: white;
+    }
+
+    .notice-form h3 {
+        text-align: center;
+        margin-bottom: 25px;
+        color: #ffc107;
+    }
+
+    .notice-form .form-control {
+        background: #121212;
+        border: 1px solid #444;
+        color: white;
+    }
+
+    .notice-form .form-control:focus {
+        background: #121212;
+        color: white;
+        border-color: #ffc107;
+        box-shadow: none;
+    }
+
+    .notice-form button {
+        margin-top: 15px;
+        font-weight: 600;
+    }
+</style>
+
+<div class="container py-5">
+    <div class="notice-form">
+
+        <h3>📝 Add Notice</h3>
+
+        <form action="/" method="POST" class="fade-pop delay-1">
+
+            <!-- Name -->
+            <div class="mb-3">
+                <label class="form-label fade-pop delay-2">Your Name</label>
+                <input 
+                    type="text" 
+                    name="notice[by]" 
+                    class="form-control delay-2"
+                    placeholder="CR Name"
+                    required>
+            </div>
+
+            <!-- Notice Content -->
+            <div class="mb-3">
+                <label class="form-label fade-pop delay-4">Notice</label>
+                <textarea 
+                    name="notice[content]"
+                    class="form-control delay-2"
+                    rows="4"
+                    placeholder="Write the notice here..."
+                    required></textarea>
+            </div>
+
+            <!-- Password -->
+            <div class="mb-3">
+                <label class="form-label fade-pop delay-4">CR Password</label>
+                <input 
+                    type="password"
+                    name="password"
+                    class="form-control delay-3"
+                    placeholder="Enter password"
+                    required>
+            </div>
+
+            <button class="btn btn-warning w-100">
+                Post Notice
+            </button>
+
+        </form>
+
+    </div>
+</div>
