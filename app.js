@@ -7,7 +7,9 @@ const { connectDB, DEFAULT_MONGO_URL } = require("./config/db.js");
 const currentPath = require("./middleware/currentPath.js");
 const routes = require("./routes/index.js");
 
-connectDB(DEFAULT_MONGO_URL)
+const mongoUrl = process.env.MONGO_URL || DEFAULT_MONGO_URL;
+
+connectDB(mongoUrl)
   .then(() => {
     console.log("connected to mongo");
   })
@@ -30,6 +32,8 @@ app.use((err, req, res, next) => {
   res.status(status).render("routes/error.ejs", { err });
 });
 
-app.listen(5000, () => {
-  console.log("Server is listenning to post 5000");
+const PORT = process.env.PORT || 5000;
+
+app.listen(PORT, () => {
+  console.log(`Server is listenning to port ${PORT}`);
 });
