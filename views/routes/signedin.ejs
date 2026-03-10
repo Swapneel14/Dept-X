@@ -1,0 +1,29 @@
+<% layout("/layouts/boilerplate") %>
+
+<body class="bg-dark text-light">
+  <div class="container py-5 fade-pop delay-1">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card bg-info text-dark shadow rounded p-4">
+          <h3 class="card-title text-center mb-3">You’re already signed up</h3>
+
+          <p class="text-center mb-4 fade-pop delay-2">
+            An account already exists for
+            <strong><%= student.roll %></strong>.
+            Please log in instead.
+          </p>
+
+          <div class="d-flex gap-2 justify-content-center fade-pop delay-3">
+            <a href="/login/<%= student._id %>" class="btn btn-warning fw-bold">
+              Go to Login
+            </a>
+            <a href="/students" class="btn btn-outline-dark fw-bold">
+              Back to Dashboard
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+

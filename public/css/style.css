@@ -8,6 +8,19 @@ body {
 .h1-home {
   color: aqua;
 }
+/*=====Cr-Box====*/
+.cr-box {
+  display: inline-block;
+  transition: transform 1s ease;
+      
+      
+}
+
+.cr-box:hover {
+  transform: scale(1.04);
+  
+}
+
 
 .cr-name {
   color: #ffffff;
