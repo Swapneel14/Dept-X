@@ -10,15 +10,23 @@ const routes = require("./routes/index.js");
 require("dotenv").config();
 
 const atlasUrl = "mongodb+srv://swapneel_14:Daredevil1421@cluster0.3udl4ly.mongodb.net/dashboard?retryWrites=true&w=majority";
-const dblink =  atlasUrl;
+const dblink = process.env.MONGO_URL || atlasUrl;
 
 if (!process.env.MONGO_URL) {
   console.log("WARNING: MONGO_URL not set; falling back to Atlas URL. Remove local fallback if you want strict Atlas enforcement.");
 }
 
+const startServer = () => {
+  const PORT = process.env.PORT || 5000;
+  app.listen(PORT, () => {
+    console.log(`Server is listening on port ${PORT}`);
+  });
+};
+
 connectDB(dblink)
   .then(() => {
     console.log("connected to mongo", dblink);
+    startServer();
   })
   .catch((err) => {
     console.error("mongo connection error", err);
@@ -52,8 +60,4 @@ app.use((err, req, res, next) => {
   res.status(status).render("routes/error.ejs", { err });
 });
 
-const PORT = process.env.PORT || 5000;
-
-app.listen(PORT, () => {
-  console.log(`Server is listenning to port ${PORT}`);
-});
+// Moved to connectDB success handler with startServer()
