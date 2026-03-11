@@ -13,10 +13,11 @@
 
 ## 📷 Application Preview
 
-| Desktop View                                                          | Mobile View                                                        |
-| --------------------------------------------------------------------- | ------------------------------------------------------------------ |
-|<img width="1894" height="890" alt="desktop" src="https://github.com/user-attachments/assets/5048462f-8d54-4329-95c8-4b6035edd230" />
- | <img src="./assets/mobile-view.png" alt="Mobile View" width="250"> |
+| Desktop View                                                                                                                         | Mobile View                                                        |
+| ------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------ |
+|<img width="1894" height="890" alt="desktop" src="https://github.com/user-attachments/assets/5048462f-8d54-4329-95c8-4b6035edd230" />  |<img width="457" height="898" alt="Screenshot 2026-03-11 103942" src="https://github.com/user-attachments/assets/f0cf6db3-5bb5-44ba-90c8-5ae5577218b3" />|
+
+
 
 ---
 
