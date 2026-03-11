@@ -1,9 +1,12 @@
 const mongoose = require("mongoose");
 
-const DEFAULT_MONGO_URL = "mongodb://127.0.0.1:27017/dashboard";
 
-async function connectDB(mongoUrl = DEFAULT_MONGO_URL) {
-  await mongoose.connect(mongoUrl);
+
+async function connectDB(mongoUrl) {
+  if (!mongoUrl.startsWith("mongodb+srv://")) {
+    throw new Error("Atlas URI required");
+  }
+  await mongoose.connect(mongoUrl, { useNewUrlParser: true, useUnifiedTopology: true });
 }
 
-module.exports = { connectDB, DEFAULT_MONGO_URL };
+module.exports = { connectDB};

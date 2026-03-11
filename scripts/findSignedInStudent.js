@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const Student = require("../models/students.js");
 
 async function main() {
-  await mongoose.connect("mongodb://127.0.0.1:27017/dashboard");
+  await mongoose.connect("mongodb+srv://swapneel_14:Daredevil1421@cluster0.3udl4ly.mongodb.net/dashboard?retryWrites=true&w=majority");
   const s = await Student.findOne({
     password: { $exists: true, $nin: [null, ""] },
   });

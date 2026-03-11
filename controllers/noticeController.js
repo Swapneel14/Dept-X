@@ -9,9 +9,17 @@ module.exports.createNotice = async (req, res) => {
   if (password != "chayan123") {
     return res.send("Password not correct");
   }
-  const newNotice = new Notice(notice);
-  newNotice.date = Date.now();
+
+  // Ensure simple string fields for MongoDB
+  const payload = {
+    by: notice && notice.by ? String(notice.by).trim() : "Anonymous",
+    content: notice && notice.content ? String(notice.content).trim() : "(No content)",
+    date: new Date(),
+  };
+
+  const newNotice = new Notice(payload);
   await newNotice.save();
+
   return res.redirect("/");
 };
 
