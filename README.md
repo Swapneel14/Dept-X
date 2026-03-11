@@ -5,6 +5,8 @@
 
 ## 🚀 Project Overview
 
+https://dept-x.onrender.com
+
 `Dept-X` is an Express-based education portal with:
 - Auth flow (signup/login)
 - Student profile
